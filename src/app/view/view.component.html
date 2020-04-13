@@ -1,0 +1,16 @@
+<table class ="table" style="" border="1">
+  <tr *ngFor="let u of employees">
+    <td>
+      {{u.id}}
+    </td>
+    <td>
+      {{u.name}}
+    </td>
+    <td>
+      {{u.age}}
+    </td>
+    <td>  
+      <a routerLink="/editEmployee"> <button class= 'btn btn-info' (click)="editService.setEmployee(u)">UPDATE DATA</button></a>
+    </td>
+  </tr>
+</table>
