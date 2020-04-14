@@ -1,11 +1,13 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
-<div align='center'><h1>CRUD with Angular</h1></div>
-
-
-<a routerLink="addEmployee">Adddd</a>
-<br/>
-<a routerLink="employees">view</a>
-<router-outlet></router-outlet>
+<html>
+  <head>
+    <title>Employee Management System</title>
+  </head>
+  <body>
+    <div> 
+      <h1>{{title}}</h1>
+      <a href="/employees">Employee List</a>
+      <a href="/addEmployee">Add Employee</a>
+      <router-outlet></router-outlet>
+    </div>
+  </body>
+</html>

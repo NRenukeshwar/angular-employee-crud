@@ -1,3 +1,13 @@
+<html>
+  <head>
+    <title>Employee List</title>
+  </head>
+  <body> 
+<div>
+  <h1>Employee List</h1>
+  <label for="filter">
+    <input id="filter" [(ngModel)]="searchvalue" (input)="search()" placeholder="Enter employee name to search.."/>
+  </label>
 <table class ="table" style="" border="1">
   <tr *ngFor="let u of employees">
     <td>
@@ -6,14 +16,19 @@
     </a>
     </td>
     <td>
-      {{u.name}}
+      {{u.name}} 
     </td>
     <td>
       {{u.age}}
     </td>
-    <td>  
+    <td>
       <a routerLink="/editEmployee"> <button class= 'btn btn-info' (click)="editService.setEmployee(u)">UPDATE DATA</button></a>
+    </td>
+    <td>
       <button class= 'btn btn-info' (click)="deleteEmp(u.id)">Delete</button>
     </td>
   </tr>
 </table>
+</div>
+  </body>
+</html>

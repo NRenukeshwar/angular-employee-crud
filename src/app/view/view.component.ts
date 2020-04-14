@@ -3,6 +3,11 @@ import { DataService } from '../employee.service';
 import { Employee } from '../employee-data';
 import { Router } from '@angular/router';
 import {EditEmployeeService} from '../edit-employee.service';
+import { Observable, Subject } from 'rxjs';
+
+import {
+   debounceTime, distinctUntilChanged, switchMap
+ } from 'rxjs/operators';
 
 @Component({
   selector: 'view',
@@ -10,13 +15,17 @@ import {EditEmployeeService} from '../edit-employee.service';
   })
 export class ViewEmployeeComponent implements OnInit  {
   constructor(private router: Router,private dataservice: DataService, private editService: EditEmployeeService) {}
-    
-  employees: Employee[]=[];
+
+    searchvalue:String;
+    employees: Employee[]=[];
+    searchs: Employee[]=[];
   
   getUsers(){
     this.dataservice.getEmployees().subscribe(data => {
       this.employees=data;
+      this.searchs=data
     });
+
   }
   deleteEmp(id:number)
   {
@@ -24,7 +33,12 @@ export class ViewEmployeeComponent implements OnInit  {
     this.dataservice.deleteEmployee(id).subscribe(data=>{this.getUsers();alert("Deleted")});
   }
   ngOnInit(){
-    this.getUsers();
+     this.getUsers();
   }
-
+  search(): void {
+   this.dataservice.searchEmployees(this.searchvalue).subscribe(data => {
+      this.employees=data
+    });
+  }
+ 
 }

@@ -8,6 +8,6 @@ import { Employee } from './employee-data';
 })
 export class AppComponent  {
   
-
+title="Employee Management System"
 
 }

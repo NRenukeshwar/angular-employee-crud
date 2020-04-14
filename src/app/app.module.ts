@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { EmployeeComponent } from './details/details.component';
 import { RouterModule, Routes } from '@angular/router';
 import {EditEmployeeService} from './edit-employee.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const appRoutes: Routes = [
   { path: 'addEmployee', component: AddEmployeeComponent },
@@ -20,7 +21,9 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,  HttpClientModule, InMemoryWebApiModule.forRoot(EmployeeData), RouterModule, RouterModule.forRoot(appRoutes)
+  imports:      [ BrowserModule, FormsModule,  HttpClientModule, InMemoryWebApiModule.forRoot(EmployeeData), RouterModule, 
+  RouterModule.forRoot(appRoutes),
+  Ng2SearchPipeModule
    ],
   declarations: [ AppComponent, EmployeeComponent, AddEmployeeComponent, ViewEmployeeComponent, EditEmployeeComponent ],
   providers:    [ EmployeeData,  EditEmployeeService ],
