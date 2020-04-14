@@ -1,8 +1,8 @@
 <div>
-<p>djfjgfjh</p>
+<p>Add Employee</p>
 <form>
   <input #name/>
-  <input #id/>
-  <button (click)="addEmployee(name.value,id.value); name.value=''">Submit</button>
+  <button (click)="add(name.value)">Submit</button>
 </form>
+<button (click)="goBack()">Back</button>
 </div>

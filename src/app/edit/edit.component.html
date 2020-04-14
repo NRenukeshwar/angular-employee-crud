@@ -1,1 +1,8 @@
+
 <p>edit</p>
+<div *ngIf="employee">
+<input type="txet" [(ngModel)]="employee.name"/>
+<button (click)="updateEmployee()">Update</button>
+</div>
+<div *ngIf="!employee">Go back and Select any employee to edit</div>
+<button (click)="goBack()">Back</button>

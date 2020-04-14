@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../employee.service';
-import { Employee } from '../employee-data';
+import { DataService } from './employee.service';
+import { Employee } from './employee-data';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -8,6 +8,6 @@ import { Employee } from '../employee-data';
 })
 export class AppComponent  {
   
-  
+
 
 }
