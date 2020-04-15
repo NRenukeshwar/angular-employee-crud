@@ -1,16 +1,14 @@
-<html>
-  <head>
-    <title>Employee List</title>
-  </head>
-  <body> 
-<div>
-  <h1>Employee List</h1>
-  <label for="filter">Filter By</label>
-  <input id="filter" name="filter" [(ngModel)]="searchvalue" (input)="search()"         placeholder="Enter employee name to search.."/>
+<div class="container">
   <br/>
+  <h1 class="text-center">Employee List</h1>
+  <br/>
+  <div class="row">
+  <label for="filter" class="col-sm-1 text-left">Filter By</label>
+  <input id="filter" name="filter" [(ngModel)]="searchvalue" (input)="search()" class="form-control col-sm-5" placeholder="Enter employee name to search.."/>
+  </div>
   <label for="count">Total Number of Employees:{{length}}</label>
-<table class ="table" style="" border="1">
-  <thead>
+<table class ="table text-center" border="1">
+  <thead class="text-white bg-primary">
     <th>Emp ID</th>
     <th>Name</th>
     <th>Location</th>
@@ -46,5 +44,3 @@
   </tr>
 </table>
 </div>
-  </body>
-</html>

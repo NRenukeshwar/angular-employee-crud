@@ -1,11 +1,37 @@
-
-<p>edit</p>
-<div *ngIf="employee">
-<input type="text" [(ngModel)]="employee.name"/><br/>
-<input type="text" [(ngModel)]="employee.location"/><br/>
-  <input [(ngModel)]="employee.email"/><br/>
-  <input [(ngModel)]="employee.mobile"/><br/>
-<button (click)="updateEmployee()">Update</button>
+<div class="container">
+<h2 class="text-center">Edit Employee</h2>
+<br/>
+<div class="row" *ngIf="employee">
+<form class="col-sm-6 mx-auto" style="border:2px solid grey;padding:20px;border-radius:10px">
+  <div class="form-group">
+    <label for="name">Employee Name</label>
+    <input class="form-control" id="name" name="name" [(ngModel)]="employee.name" maxLength="30" pattern="[A-Za-z]{3,}" required/>
+  </div>
+  <div class="form-group">
+   <label for="location">Location</label>
+  <select id="location" class="form-control" name="location" [(ngModel)]="employee.location" required>
+    <option value="">Select Location</option>
+    <option value="Bangalore">Bangalore</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Pune">Pune</option>
+    <option value="Hyderabad">Hyderabad</option>
+  </select>
+  </div>
+  <div class="form-group">
+   <label for="email">Email</label>
+  <input type="email" class="form-control" id="email" name="email" [(ngModel)]="employee.email" maxLength="30" pattern="[A-Za-z]{3,}" required/><br/>
+  </div>
+  <div class="form-group">
+  <label for="mobile">Mobile</label>
+  <input type="tel" id="mobile" name="mobile" class="form-control" [(ngModel)]="employee.mobile" maxLength="30" pattern="[0-9]{10}" required/>
+  </div>
+  <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+  <button  type="submit" id="update" class="btn btn-success ml-2" (click)="updateEmployee()">Update</button>
+  
+</form>
 </div>
-<div *ngIf="!employee">Go back and Select any employee to edit</div>
-<button (click)="goBack()">Back</button>
+<div *ngIf="!employee" class="text-primary text-center">
+  Go back and Select any employee to edit 
+  <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+ </div>
+</div>

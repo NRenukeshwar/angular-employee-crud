@@ -1,16 +1,36 @@
-<div>
-<h2>Add Employee</h2>
-<form>
-  <label for="name">Employee Name</label>
-  <input #name maxLength="30" pattern="[A-Za-z]{3,}" required/><br/>
-   <label for="location">Employee Location</label>
-  <input #loc maxLength="30" pattern="[A-Za-z]{3,}" required/><br/>
-   <label for="email">Employee Email</label>
-  <input #email maxLength="30" pattern="[A-Za-z]{3,}" required/><br/>
- <label for="mobile">Employee Mobile</label>
-  <input #mobile maxLength="30"  required/><br/>
 
-  <button type="submit" (click)="add(name.value,loc.value,email.value,mobile.value)">Submit</button>
+<div class="container">
+<h2 class="text-center">Add Employee</h2>
+<div class="row">
+<form #form="ngForm" class="col-sm-6 mx-auto" style="border:2px solid grey;padding:20px;border-radius:10px" novalidate>
+  <div class="form-group">
+    <label for="name">Employee Name</label>
+    <input class="form-control" id="name" name="name" #name maxLength="30" pattern="[A-Za-z ]{3,}" ngModel #name="ngModel" required/>
+    <label *ngIf="!name.valid">hnnhhh</label>
+    <label *ngIf="name.valid">hyyhhh</label>
+  </div>
+  <div class="form-group">
+   <label for="location">Location</label>
+  <select id="location" class="form-control" name="location" #loc ngModel required>
+    <option value="">Select Location</option>
+    <option value="Bangalore">Bangalore</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Pune">Pune</option>
+    <option value="Hyderabad">Hyderabad</option>
+  </select>
+  </div>
+  <div class="form-group">
+   <label for="email">Email</label>
+  <input type="email" class="form-control" id="email" name="email" #email maxLength="30" pattern=".{3,}" ngModel required/><br/>
+  </div>
+  <div class="form-group">
+  <label for="mobile">Mobile</label>
+  <input type="tel" id="mobile" name="mobile" class="form-control" #mobile maxLength="30" pattern="[0-9]{10}" ngModel required/>
+  </div>
+  
+  <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+  <button type="submit" id="add" *ngIf="form.valid" (click)="add(form)" class="btn btn-success ml-2">Submit</button>
+  
 </form>
-<button (click)="goBack()">Back</button>
+</div>
 </div>
