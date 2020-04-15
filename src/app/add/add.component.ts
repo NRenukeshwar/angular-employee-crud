@@ -14,10 +14,13 @@ export class AddEmployeeComponent {
   goBack(): void {
     this.router.navigate(['/employees']);
   }
-   add(name)
+   add(name,location,email,mobile)
    {
-     this.employee={name:""};
+     this.employee={name:"",location:"",email:"",mobile:""};
      this.employee.name=name;
+     this.employee.location=location;
+     this.employee.email=email;
+     this.employee.mobile=mobile;
      console.log(this.employee);
     
      this.dataService.addEmployee(this.employee).subscribe(() => this.goBack());

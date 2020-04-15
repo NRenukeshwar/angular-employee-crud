@@ -18,12 +18,12 @@ export class ViewEmployeeComponent implements OnInit  {
 
     searchvalue:String;
     employees: Employee[]=[];
-    searchs: Employee[]=[];
-  
+    length: number;
+    
   getUsers(){
     this.dataservice.getEmployees().subscribe(data => {
       this.employees=data;
-      this.searchs=data
+      this.length=data.length;
     });
 
   }
@@ -37,7 +37,8 @@ export class ViewEmployeeComponent implements OnInit  {
   }
   search(): void {
    this.dataservice.searchEmployees(this.searchvalue).subscribe(data => {
-      this.employees=data
+      this.employees=data;
+      this.length=data.length;
     });
   }
  

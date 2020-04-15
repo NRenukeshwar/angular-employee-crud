@@ -1,8 +1,16 @@
 <div>
-<p>Add Employee</p>
+<h2>Add Employee</h2>
 <form>
-  <input #name/>
-  <button (click)="add(name.value)">Submit</button>
+  <label for="name">Employee Name</label>
+  <input #name maxLength="30" pattern="[A-Za-z]{3,}" required/><br/>
+   <label for="location">Employee Location</label>
+  <input #loc maxLength="30" pattern="[A-Za-z]{3,}" required/><br/>
+   <label for="email">Employee Email</label>
+  <input #email maxLength="30" pattern="[A-Za-z]{3,}" required/><br/>
+ <label for="mobile">Employee Mobile</label>
+  <input #mobile maxLength="30"  required/><br/>
+
+  <button type="submit" (click)="add(name.value,loc.value,email.value,mobile.value)">Submit</button>
 </form>
 <button (click)="goBack()">Back</button>
 </div>

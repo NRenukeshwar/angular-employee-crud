@@ -4,16 +4,9 @@ import {Employee} from './employee-data';
 export class EmployeeData implements InMemoryDbService {
   createDb() {
     let employees : Employee[]=[
-      { id: 11, name: 'Mr. Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 1, name: "Ram", location: "Bangalore", email:"ram@mail.com", mobile:"9867512345" },
+     { id: 2, name: "Raj", location: "Chennai", email:"raj@mail.com", mobile:"7867534521" },
+     { id: 3, name: "Vinay", location: "Pune", email:"vinay@mail.com", mobile:"9975287450" }
     ];
     return {employees};
   }
