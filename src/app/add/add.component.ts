@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Employee } from '../employee-data';
 import { DataService} from '../employee.service'
 import {Router} from '@angular/router';
@@ -8,7 +8,8 @@ import {NgForm} from '@angular/forms';
   templateUrl: './add.component.html'
 })
 export class AddEmployeeComponent {
-   employee:Employee;
+
+  employee:Employee;
   constructor( private dataService: DataService, private router:Router){};
   valid:false;
   goBack(): void {
@@ -16,13 +17,11 @@ export class AddEmployeeComponent {
   }
    add(f: NgForm)
    {
-    
      this.employee=f.value;
      
      console.log(this.employee);
     
      this.dataService.addEmployee(this.employee).subscribe(() => this.goBack());
-   
    }
 
 }
