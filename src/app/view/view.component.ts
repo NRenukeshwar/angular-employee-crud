@@ -16,7 +16,7 @@ import {
 export class ViewEmployeeComponent implements OnInit  {
   constructor(private router: Router,private dataservice: DataService, private editService: EditEmployeeService) {}
 
-    searchvalue:String;
+    searchvalue:string;
     employees: Employee[]=[];
     length: number;
     
@@ -29,8 +29,7 @@ export class ViewEmployeeComponent implements OnInit  {
   }
   deleteEmp(id:number)
   {
-    console.log("delete"+id);
-    this.dataservice.deleteEmployee(id).subscribe(data=>{this.getUsers();alert("Deleted")});
+    this.dataservice.deleteEmployee(id).subscribe(data=>{this.getUsers();alert("Employee deleted with Id:"+id)});
   }
   ngOnInit(){
      this.getUsers();

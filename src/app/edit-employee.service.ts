@@ -8,13 +8,11 @@ export class EditEmployeeService
   
   setEmployee(e:Employee)
   {
-    console.log(e);
     this.data=e;
   }
 
   getEmployee(): Employee
   {
-     console.log(" get service");
       return this.data;
   }
 }

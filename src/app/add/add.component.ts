@@ -3,10 +3,12 @@ import { Employee } from '../employee-data';
 import { DataService} from '../employee.service'
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'add',
   templateUrl: './add.component.html'
 })
+
 export class AddEmployeeComponent {
 
   employee:Employee;
@@ -18,10 +20,7 @@ export class AddEmployeeComponent {
    add(f: NgForm)
    {
      this.employee=f.value;
-     
-     console.log(this.employee);
-    
-     this.dataService.addEmployee(this.employee).subscribe(() => this.goBack());
+      this.dataService.addEmployee(this.employee).subscribe(() => this.goBack());
    }
 
 }

@@ -1,7 +1,7 @@
-export class Employee {
-  public id: number;
-  public name: string;
-  public location: string;
-  public email: string;
-  public mobile: string;
+export interface Employee {
+  id: number;
+  name: string;
+  location: string;
+  email: string;
+  mobile: string;
 }
